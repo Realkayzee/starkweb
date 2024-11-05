@@ -1,0 +1,62 @@
+{
+    "name": "starkweb",
+    "version": "0.0.1",
+    "private": false,
+    "type": "module",
+    "main": "./dist/cjs/exports/starkweb.js",
+    "module": "./dist/esm/exports/starkweb.js",
+    "types": "./dist/esm/exports/starkweb.d.ts",
+    "typings": "./dist/esm/exports/starkweb.d.ts",
+    "bin": {
+        "starkweb": "./dist/esm/cli/bin.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NethermindEth/starkweb"
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/esm/exports/starkweb.d.ts",
+            "import": "./dist/esm/exports/starkweb.js",
+            "default": "./dist/cjs/exports/starkweb.js"
+        },
+        "./cli": "./dist/esm/cli/bin.js"
+    },
+    "typesVersions": {
+        "*": {
+            "*": [
+                "./dist/esm/exports/*"
+            ]
+        }
+    },
+    "sideEffects": false,
+    "files": [
+        "dist/*",
+        "src/*"
+    ],
+    "scripts": {
+        "bench:compare": "bun run ./benchmarks/run.ts",
+        "bench": "vitest -c ./test/vitest.config.ts bench",
+        "format": "biome format ./src --write",
+        "lint": "knip && biome check ./src && tsc --project ./tsconfig.build.json --module esnext --noEmit",
+        "fix": "biome check ./src --fix",
+        "knip": "knip",
+        "dev": "tsc --project ./tsconfig.build.json --module es2020 --outDir ./dist/esm --watch",
+        "dev:cjs": "printf '{\"type\":\"commonjs\"}' > ./dist/cjs/package.json && tsc --noCheck --project ./tsconfig.build.json --module commonjs --outDir ./dist/cjs --verbatimModuleSyntax false --watch",
+        "dev:esm": "printf '{\"type\": \"module\",\"sideEffects\":false}' > ./dist/esm/package.json && tsc --noCheck --project ./tsconfig.build.json --module es2020 --outDir ./dist/esm --watch",
+        "build": "pnpm clean && pnpm build:types && pnpm build:cjs && pnpm build:esm",
+        "build:cjs": "tsc --noCheck --project ./tsconfig.build.json --module commonjs --outDir ./dist/cjs --verbatimModuleSyntax false && printf '{\"type\":\"commonjs\"}' > ./dist/cjs/package.json",
+        "build:esm": "tsc --noCheck --project ./tsconfig.build.json --module es2020 --outDir ./dist/esm && printf '{\"type\": \"module\",\"sideEffects\":false}' > ./dist/esm/package.json",
+        "build:types": "tsc --project ./tsconfig.build.json --module esnext --declarationDir ./dist/types --emitDeclarationOnly --declaration --declarationMap",
+        "clean": "rimraf dist",
+        "size": "size-limit",
+        "typedoc": "bun run scripts/typedoc.mjs",
+        "update-version": "node scripts/version.mjs"
+    },
+    "peerDependencies": {
+        "typescript": "^5.6.3"
+    },
+    "devDependencies": {
+        "turbo": "^2.2.3"
+    }
+}
