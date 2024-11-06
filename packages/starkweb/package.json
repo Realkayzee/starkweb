@@ -20,7 +20,16 @@
             "import": "./dist/esm/exports/starkweb.js",
             "default": "./dist/cjs/exports/starkweb.js"
         },
-        "./cli": "./dist/esm/cli/bin.js"
+        "./chains": {
+            "types": "./dist/esm/chains/index.d.ts",
+            "import": "./dist/esm/chains/index.js",
+            "default": "./dist/cjs/chains/index.js"
+        },
+        "./cli": {
+            "types": "./dist/esm/cli/bin.d.ts",
+            "import": "./dist/esm/cli/bin.js",
+            "default": "./dist/cjs/cli/bin.js"
+        }
     },
     "typesVersions": {
         "*": {

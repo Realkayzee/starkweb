@@ -1,6 +1,0 @@
-{
-  "type": "module",
-  "types": "../_types/siws/index.d.ts",
-  "module": "../_esm/siws/index.js",
-  "main": "../_cjs/siws/index.js"
-}

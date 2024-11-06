@@ -1,6 +1,0 @@
-{
-  "type": "module",
-  "types": "../_types/strk-utils/index.d.ts",
-  "module": "../_esm/strk-utils/index.js",
-  "main": "../_cjs/strk-utils/index.js"
-}
