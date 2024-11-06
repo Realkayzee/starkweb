@@ -493,7 +493,16 @@ export {
 } from '../strk-utils/encode.js'
 export { assertInRange, toBigInt } from '../strk-utils/num.js'
 export { generateNonce } from '../strk-utils/nonce.js'
-export { isASCII, isShortString, isDecimalString, isText, isShortText, isLongText, splitLongString, encodeShortString, decodeShortString, TEXT_TO_FELT_MAX_LEN } from '../strk-utils/shortString.js'
+export { isASCII, isShortString, isDecimalString, isText, isShortText, isLongText, splitLongString, encodeShortString, decodeShortString } from '../strk-utils/shortString.js'
 export { isBoolean, isNumber, isObject, isString, isUndefined } from '../strk-utils/typed.js'
 
 export { validateTypedData as snValidateTypedData, encodeData, encodeType, encodeValue } from '../strk-utils/typedData.js'
+
+export { CairoFelt } from '../strk-utils/cairoDataTypes/felt.js'
+export { CairoUint256 } from '../strk-utils/cairoDataTypes/uint256.js'
+export { byteArrayFromString } from '../strk-utils/calldata/byteArray.js'
+export { felt, uint256 } from '../strk-utils/calldata/cairo.js'
+export { compile, calldataToHex } from '../strk-utils/calldata/compile.js'
+export { CairoCustomEnum } from '../strk-utils/calldata/enum/CairoCustomEnum.js'
+export { CairoOption, CairoOptionVariant } from '../strk-utils/calldata/enum/CairoOption.js'
+export { CairoResult } from '../strk-utils/calldata/enum/CairoResult.js'
