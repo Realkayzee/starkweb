@@ -20,15 +20,65 @@
             "import": "./dist/esm/exports/starkweb.js",
             "default": "./dist/cjs/exports/starkweb.js"
         },
+        "./accounts": {
+            "types": "./dist/esm/exports/accounts.d.ts",
+            "import": "./dist/esm/exports/accounts.js",
+            "default": "./dist/cjs/exports/accounts.js"
+        },
+        "./actions": {
+            "types": "./dist/esm/exports/actions.d.ts",
+            "import": "./dist/esm/exports/actions.js",
+            "default": "./dist/cjs/exports/actions.js"
+        },
         "./chains": {
             "types": "./dist/esm/exports/chains.d.ts",
             "import": "./dist/esm/exports/chains.js",
             "default": "./dist/cjs/exports/chains.js"
         },
+        "./chains/utils": {
+            "types": "./dist/esm/exports/chains/utils.d.ts",
+            "import": "./dist/esm/exports/chains/utils.js",
+            "default": "./dist/cjs/exports/chains/utils.js"
+        },
+        "./starknetId": {
+            "types": "./dist/esm/exports/starknetId.d.ts",
+            "import": "./dist/esm/exports/starknetId.js",
+            "default": "./dist/cjs/exports/starknetId.js"
+        },
+        "./siws": {
+            "types": "./dist/esm/exports/siws.d.ts",
+            "import": "./dist/esm/exports/siws.js",
+            "default": "./dist/cjs/exports/siws.js"
+        },
+        "./window": {
+            "types": "./dist/esm/exports/window.d.ts",
+            "import": "./dist/esm/exports/window.js",
+            "default": "./dist/cjs/exports/window.js"
+        },
         "./cli": {
             "types": "./dist/esm/cli/bin.d.ts",
             "import": "./dist/esm/cli/bin.js",
             "default": "./dist/cjs/cli/bin.js"
+        },
+        "./utils": {
+            "types": "./dist/esm/exports/utils.d.ts",
+            "import": "./dist/esm/exports/utils.js",
+            "default": "./dist/cjs/exports/utils.js"
+        },
+        "./connectors": {
+            "types": "./dist/esm/exports/connectors.d.ts",
+            "import": "./dist/esm/exports/connectors.js",
+            "default": "./dist/cjs/exports/connectors.js"
+        },
+        "./query": {
+            "types": "./dist/esm/exports/query.d.ts",
+            "import": "./dist/esm/exports/query.js",
+            "default": "./dist/cjs/exports/query.js"
+        },
+        "./react": {
+            "types": "./dist/esm/react/exports/index.d.ts",
+            "import": "./dist/esm/react/exports/index.js",
+            "default": "./dist/cjs/react/exports/index.js"
         }
     },
     "typesVersions": {
