@@ -21,9 +21,9 @@
             "default": "./dist/cjs/exports/starkweb.js"
         },
         "./chains": {
-            "types": "./dist/esm/chains/index.d.ts",
-            "import": "./dist/esm/chains/index.js",
-            "default": "./dist/cjs/chains/index.js"
+            "types": "./dist/esm/exports/chains.d.ts",
+            "import": "./dist/esm/exports/chains.js",
+            "default": "./dist/cjs/exports/chains.js"
         },
         "./cli": {
             "types": "./dist/esm/cli/bin.d.ts",
