@@ -1,0 +1,33 @@
+{
+    "name": "starkweb",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "repository": "https://github.com/NethermindEth/starkweb",
+    "license": "MIT",
+    "scripts": {
+        "preinstall": "npx only-allow pnpm",
+        "lint": "pnpm dlx sherif@latest -i remark-gfm && turbo run lint",
+        "prefix": "pnpm dlx sherif@latest -i remark-gfm --fix",
+        "fix": "turbo run fix",
+        "build": "turbo run build --filter=./packages/*",
+        "build:packages": "turbo run build --filter=./packages/*",
+        "build:release": "pnpm run build --filter=./packages/* --force",
+        "test": "turbo run test --filter=./packages/*",
+        "bench": "turbo run bench",
+        "changeset": "changeset",
+        "version-packages": "changeset version",
+        "release": "node ./scripts/pre-release.mjs && turbo run update-version && pnpm build:release && changeset publish",
+        "version-packages:nightly": "node scripts/pre-nightly.mjs && changeset version --snapshot nightly",
+        "release:nightly": "node ./scripts/pre-release.mjs && turbo run update-version && pnpm build && changeset publish --tag nightly"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^1.9.4",
+        "@changesets/changelog-github": "^0.5.0",
+        "@changesets/cli": "^2.27.9",
+        "@types/node": "^22.9.0",
+        "turbo": "^2.2.3",
+        "typescript": "^5.6.3"
+    },
+    "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b"
+}
