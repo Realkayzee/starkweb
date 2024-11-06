@@ -1,0 +1,49 @@
+{
+    "$schema": "https://turborepo.org/schema.json",
+    "tasks":  {
+      "build": {
+        "outputs": ["dist/**"],
+        "dependsOn": ["^build"]
+      },
+      "bench": {
+        "cache": false,
+        "dependsOn": []
+      },
+      "starkweb": {
+        "dependsOn": ["^build"]
+      },
+   
+      "update-version": {
+        "inputs": ["package.json"],
+        "outputs": ["src/version.ts"]
+      },
+      "test": {
+        "outputs": ["coverage/**"],
+        "inputs": ["src/**", "test/**"],
+        "dependsOn": ["^build"]
+      },
+      "lint": {
+        "cache": false,
+        "outputs": []
+      },
+      "lint:legacy": {
+        "cache": false,
+        "outputs": []
+      },
+      "fix": {
+        "cache": false,
+        "outputs": []
+      },
+      "format": {
+        "cache": false
+      },
+      "dev": {
+        "cache": false,
+        "persistent": true
+      },
+      "clean": {
+        "cache": false
+      }
+    }
+  }
+  
