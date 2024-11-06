@@ -15,3 +15,4 @@ export {
   type GetChainContractAddressErrorType,
   getChainContractAddress,
 } from '../utils/chain/getChainContractAddress.js'
+export { type AddStarknetChainParameters } from '../utils/chain/addStarknetChainParameters.js'

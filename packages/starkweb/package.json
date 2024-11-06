@@ -63,7 +63,8 @@
         "update-version": "node scripts/version.mjs"
     },
     "peerDependencies": {
-        "typescript": "^5.6.3"
+        "typescript": "^5.6.3",
+        "@tanstack/query-core": ">=5.0.0"
     },
     "devDependencies": {
         "@stablelib/random": "^2.0.0",
@@ -84,6 +85,9 @@
         "abitype": "1.0.5",
         "isows": "1.0.4",
         "lossless-json": "^4.0.2",
-        "ws": "8.17.1"
+        "ws": "8.17.1",
+        "eventemitter3": "5.0.1",
+        "mipd": "0.0.5",
+        "zustand": "4.4.1"
     }
 }
