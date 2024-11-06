@@ -12,7 +12,7 @@ import {
   RANGE_U128,
 } from '../strk-types/constants.js'
 import type { BigNumberish } from '../strk-types/lib.js'
-import assert from './assert.js'
+import { assert } from './assert.js'
 import { byteArrayFromString } from './calldata/byteArray.js'
 import {
   computePedersenHashOnElements,

@@ -6,7 +6,7 @@ import { hexToBytes, toHex } from './num.js'
 /* eslint-disable no-param-reassign */
 export const IS_BROWSER = typeof window !== 'undefined'
 
-const STRING_ZERO = '0'
+export const STRING_ZERO = '0'
 
 /**
  * Some functions recreated from https://github.com/pedrouid/enc-utils/blob/master/src/index.ts
@@ -169,7 +169,7 @@ export function addHexPrefix(hex: string): string {
  * // result = '00000hello'
  * ```
  */
-function padString(
+export function padString(
   str: string,
   length: number,
   left: boolean,

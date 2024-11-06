@@ -1,4 +1,4 @@
-export default function assert(
+export function assert(
   condition: boolean,
   message?: string,
 ): asserts condition {
