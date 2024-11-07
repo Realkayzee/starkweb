@@ -62,9 +62,10 @@ export class BaseError extends Error {
     this.shortMessage = shortMessage
   }
 
-
+  // walk(fn?: (err: unknown) => boolean) {
+  //   return true
+  // }
   walk(fn?: (err: unknown) => boolean) {
-    // @ts-expect-error
     return this.#walk(this, fn)
   }
 
