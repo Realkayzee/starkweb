@@ -360,8 +360,6 @@ export {
     type UseWriteContractParameters,
     type UseWriteContractReturnType,
     useWriteContract,
-    /** @deprecated Use `useWriteContract` instead */
-    useWriteContract as useContractWrite,
   } from '../../react/hooks/useWriteContract.js'
   
   ////////////////////////////////////////////////////////////////////////////////
@@ -372,3 +370,6 @@ export {
     type HydrateProps,
     Hydrate,
   } from '../../react/hydrate.js'
+
+
+  export { cookieStorage, createConfig, createStorage } from '../../core/exports/index.js'
