@@ -10,7 +10,7 @@ on:
       - "packages/**"
     branches:
       - main
-      
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
 
@@ -25,7 +25,7 @@ jobs:
         with:
           fetch-depth: 0
           # Do not use the GITHUB_TOKEN by default
-          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+          submodules: 'recursive'
 
       - name: Setup bun
         uses: oven-sh/setup-bun@v1
