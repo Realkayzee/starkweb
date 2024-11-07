@@ -1,5 +1,5 @@
-import { weiUnits } from 'viem'
 
+import { weiUnits } from '../../constants/unit.js'
 import type { Unit } from '../types/unit.js'
 
 export function getUnit(unit: Unit) {
