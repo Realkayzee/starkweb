@@ -372,4 +372,6 @@ export {
   } from '../../react/hydrate.js'
 
 
-  export { cookieStorage, createConfig, createStorage } from '../../core/exports/index.js'
+  // export { cookieStorage, createConfig, createStorage } from '../../core/exports/index.js'
+  export { createConfig } from '../../core/createConfig.js'
+  export { createStorage } from '../../core/createStorage.js'
