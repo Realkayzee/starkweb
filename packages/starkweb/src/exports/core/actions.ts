@@ -201,12 +201,12 @@ export { type GetChainsReturnType, getChains } from "../../core/actions/getChain
     type GetTraceTransactionReturnType,
   } from "../../core/actions/getTraceTransaction.js";
   
-  export {
-    simulateTransaction,
-    type SimulateTransactionErrorType,
-    type SimulateTransactionParameters,
-    type SimulateTransactionReturnType,
-  } from "../../core/actions/simulateTransaction.js";
+  // export {
+  //   simulateTransaction,
+  //   type SimulateTransactionErrorType,
+  //   type SimulateTransactionParameters,
+  //   type SimulateTransactionReturnType,
+  // } from "../../core/actions/simulateTransaction.js";
   
   export {
     syncing,

@@ -1,7 +1,6 @@
-// TODO: Remove this once we have a walletActions
-// @ts-ignore
-import { type Account, type WalletClient, walletActions } from '../../clients/walletClient.js'
+// import { type Account, type WalletClient, walletActions } from '../../clients/walletClient.js'
 
+import type { WalletClient } from '../../clients/createWalletClient.js'
 import type { Config } from '../createConfig.js'
 import type { BaseErrorType, ErrorType } from '../errors/base.js'
 import {

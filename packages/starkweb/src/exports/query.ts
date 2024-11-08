@@ -93,13 +93,13 @@ export {
     estimateMessageFeeQueryOptions,
   } from "../core/query/estimateMessageFee.js";
   
-  export {
-    type SimulateContractData,
-    type SimulateContractQueryFnData,
-    type SimulateContractQueryKey,
-    simulateContractQueryKey,
-    simulateContractQueryOptions,
-  } from "../core/query/simulateTransaction.js";
+  // export {
+  //   type SimulateContractData,
+  //   type SimulateContractQueryFnData,
+  //   type SimulateContractQueryKey,
+  //   simulateContractQueryKey,
+  //   simulateContractQueryOptions,
+  // } from "../core/query/simulateTransaction.js";
   
   export {
     type ReadContractsData,

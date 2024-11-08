@@ -1,19 +1,26 @@
-// @ts-nocheck
-import {  ChainNotConfiguredError, createConnector } from 'sn-wolf-core'
-import type { Evaluate } from 'sn-wolf-core/internal'
-import {
-    type Address,
-    type Hex,
-    type ProviderConnectInfo,
-    type ProviderRpcError,
-    ResourceUnavailableRpcError,
-    type RpcError,
-    type SNIP1193Provider,
-    SwitchChainError,
-    UserRejectedRequestError,
-    getAddress,
-  } from 'strkjs'
-  import 'strkjs/window'
+// import {  ChainNotConfiguredError, createConnector } from 'sn-wolf-core'
+// import type { Evaluate } from 'sn-wolf-core/internal'
+// import {
+//     type Address,
+//     type Hex,
+//     type ProviderConnectInfo,
+//     type ProviderRpcError,
+//     ResourceUnavailableRpcError,
+//     type RpcError,
+//     type SNIP1193Provider,
+//     SwitchChainError,
+//     UserRejectedRequestError,
+//     getAddress,
+//   } from 'strkjs'
+//   import 'strkjs/window'
+
+import type { ProviderConnectInfo, SNIP1193Provider } from "../../types/snip1193.js"
+import type { Evaluate } from "../../types/utils.js"
+import { createConnector } from "./createConnector.js"
+import type { Address } from "abitype"
+import { ChainNotConfiguredError } from "../errors/config.js"
+import { ResourceUnavailableRpcError, RpcError, SwitchChainError, UserRejectedRequestError } from "../../errors/rpc.js"
+import type { Hex } from "../../types/misc.js"
 
   export  type ArgentXParameters = any
   
@@ -192,16 +199,16 @@ import {
       },
       onChainChanged(chain) {
         const chainId = chain
-        this.chainId = chainId 
-        // config.emitter.emit('networkChanged', { chainId })
-        // config.emitter.emit('change', { chainId })
+        // this.chainId = chainId 
+        config.emitter.emit('networkChanged', { chainId })
+        config.emitter.emit('change', { chainId })
       },
       async onConnect(connectInfo) {
         const accounts = await this.getAccounts()
         if (accounts.length === 0) return
   
         const chainId = connectInfo.chainId
-        config.emitter.emit('accountsChanged', { accounts, chainId })
+        config.emitter.emit('accountsChanged', { accounts, chainId: chainId as Hex })
   
         const provider = await this.getProvider()
         if (provider) {
@@ -238,7 +245,7 @@ import {
           this.onAccountsChanged.bind(this),
         )
         provider.removeListener('networkChanged', this.onChainChanged)
-        provider.removeListener('networkChanged', this.onDisconnect.bind(this))
+        // provider.removeListener('networkChanged', this.onDisconnect.bind(this))
         provider.on('accountsChanged', this.onAccountsChanged.bind(this) as any)
       },
     }))
