@@ -666,7 +666,10 @@ export type SNIP1193Parameters<
   ? {
       [K in keyof TRpcSchema]: Prettify<
         {
-          method: TRpcSchema[K] extends TRpcSchema[number]
+          method?: TRpcSchema[K] extends TRpcSchema[number]
+            ? TRpcSchema[K]['Method']
+            : never
+          type?: TRpcSchema[K] extends TRpcSchema[number]
             ? TRpcSchema[K]['Method']
             : never
         } & (TRpcSchema[K] extends TRpcSchema[number]
@@ -677,7 +680,8 @@ export type SNIP1193Parameters<
       >
     }[number]
   : {
-      method: string
+      method?: string | undefined
+      type?: string | undefined
       params?: unknown
     }
 

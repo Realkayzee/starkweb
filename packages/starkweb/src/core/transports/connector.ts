@@ -15,13 +15,14 @@
 
 import { createTransport, type TransportConfig } from '../../clients/transports/createTransport.js'
 import type { Connector, Transport } from '../createConfig.js'
-import type { EIP1193Parameters, EIP1193RequestFn } from '../../types/eip1193.js'
+// import type { EIP1193Parameters, EIP1193RequestFn } from '../../types/eip1193.js'
 import { ChainDisconnectedError, ProviderDisconnectedError } from '../../errors/rpc.js'
-import type { EIP1193Provider, WalletRpcSchema } from '../../types/eip1193.js'
+import type { WalletRpcSchema } from '../../types/snip1193.js'
 import { numberToHex } from '../../utils/encoding/toHex.js'
 import { hexToNumber } from '../../utils/encoding/fromHex.js'
 import { withRetry } from '../../utils/promise/withRetry.js'
 import { withTimeout } from '../../utils/promise/withTimeout.js'
+import type { SNIP1193Parameters, SNIP1193Provider, SNIP1193RequestFn } from '../../types/snip1193.js'
 
 export type ConnectorTransportConfig = {
   /** The key of the transport. */
@@ -47,7 +48,7 @@ export function unstable_connector(
     const { chain, connectors } = parameters
     const retryCount = config.retryCount ?? parameters.retryCount
 
-    const request: EIP1193RequestFn = async ({ method, params }) => {
+    const request: SNIP1193RequestFn = async ({ method, params }) => {
       const connector = connectors?.getState().find((c: { type: string }) => c.type === type)
       if (!connector)
         throw new ProviderDisconnectedError(
@@ -58,7 +59,7 @@ export function unstable_connector(
 
       const provider = (await connector.getProvider({
         chainId: numberToHex(chain?.id as number),
-      })) as EIP1193Provider | undefined
+      })) as SNIP1193Provider | undefined
       if (!provider)
         throw new ProviderDisconnectedError(
           new Error('Provider is disconnected.'),
@@ -68,7 +69,7 @@ export function unstable_connector(
       // immediately resolve a JSON-RPC request on page load.
       const chainId = hexToNumber(
         await withRetry(() =>
-          withTimeout(() => provider.request({ method: 'eth_chainId' }), {
+            withTimeout(() => provider.request({ type: 'starknet_chainId' }), {
             timeout: 100,
           }),
         ),
@@ -80,7 +81,7 @@ export function unstable_connector(
           ),
         )
 
-      const body = { method, params } as EIP1193Parameters<WalletRpcSchema>
+      const body = { method, params } as SNIP1193Parameters<WalletRpcSchema>
       return provider.request(body)
     }
 

@@ -100,7 +100,8 @@ type Subscription<result, error> = {
 
 export type RpcRequest = {
   jsonrpc?: '2.0' | undefined
-  method: string
+  method?: string | undefined
+  type?: string | undefined
   params?: any | undefined
   id?: number | undefined
 }

@@ -15,7 +15,8 @@ import {
 // TODO: Narrow `method` & `params` types.
 export type OnResponseFn = (
   args: {
-    method: string
+    method?: string | undefined
+    type?: string | undefined
     params: unknown[]
     transport: ReturnType<Transport>
   } & (
