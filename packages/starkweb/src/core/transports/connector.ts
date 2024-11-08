@@ -18,7 +18,6 @@ import type { Connector, Transport } from '../createConfig.js'
 // import type { EIP1193Parameters, EIP1193RequestFn } from '../../types/eip1193.js'
 import { ChainDisconnectedError, ProviderDisconnectedError } from '../../errors/rpc.js'
 import type { WalletRpcSchema } from '../../types/snip1193.js'
-import { numberToHex } from '../../utils/encoding/toHex.js'
 import { hexToNumber } from '../../utils/encoding/fromHex.js'
 import { withRetry } from '../../utils/promise/withRetry.js'
 import { withTimeout } from '../../utils/promise/withTimeout.js'
@@ -58,7 +57,7 @@ export function unstable_connector(
         )
 
       const provider = (await connector.getProvider({
-        chainId: numberToHex(chain?.id as number),
+        chainId: chain?.chain_id,
       })) as SNIP1193Provider | undefined
       if (!provider)
         throw new ProviderDisconnectedError(

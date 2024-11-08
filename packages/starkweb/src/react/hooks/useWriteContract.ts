@@ -1,25 +1,28 @@
-// @ts-nocheck
 'use client'
 
-import { writeContractMutationOptions, type WriteContractData, type WriteContractVariables } from 'sn-wolf-core/query'
 import type { ConfigParameter } from '../types/properties.js'
-import { type UseMutationReturnType, useMutation } from '../utils/query.js'
-import { useChainId } from './useChainId.js'
+import { type UseMutationReturnType, useMutation, type UseMutationParameters } from '../utils/query.js'
 import { useConfig } from './useConfig.js'
-import type { Config, WriteContractErrorType } from 'sn-wolf-core'
-import type { Evaluate } from 'sn-wolf-core/internal'
+import type { Config } from '../../core/createConfig.js'
+import type { Evaluate } from '../../types/utils.js'
+import { writeContractMutationOptions, type WriteContractData, type WriteContractVariables } from '../../core/query/writeContract.js'
+import type { WriteContractErrorType } from '../../actions/index.js'
 
 export type UseWriteContractParameters<
   config extends Config = Config,
 > = Evaluate<
-  WriteContractOptions &
-    ConfigParameter<config> &
-    MutationParameter<
+  ConfigParameter<config> &
+    Omit<UseMutationParameters<
       WriteContractData,
       WriteContractErrorType,
-      WriteContractVariables,
-      WriteContractMutationKey
-    > 
+      WriteContractVariables
+    >, 'mutation'> & {
+      mutation?: Partial<UseMutationParameters<
+        WriteContractData,
+        WriteContractErrorType,
+        WriteContractVariables
+      >>
+    }
 >;
 
 export type UseWriteContractReturnType =
@@ -32,12 +35,9 @@ export function useWriteContract(
   const { mutation = {} } = parameters
 
   const config = useConfig(parameters)
-  const chainId = useChainId({ config })
+  // const chainId = useChainId({ config })
 
-  const options = writeContractMutationOptions(config, {
-    ...parameters,
-    chainId,
-  });
+  const options = writeContractMutationOptions(config);
 
   return useMutation({ ...mutation, ...options }) as UseWriteContractReturnType
 }
