@@ -1,10 +1,9 @@
-// @ts-nocheck
 import {
   type WriteContractErrorType as strkjs_WriteContractErrorType,
   type WriteContractParameters as strkjs_WriteContractParameters,
   type WriteContractReturnTypes as strkjs_WriteContractReturnTypes,
   writeContract as strkjs_writeContract,
-} from 'strkjs/actions'
+} from '../../actions/index.js'
 
 import type { Config } from '../createConfig.js'
 import type { ChainIdParameter } from '../types/properties.js'
@@ -25,5 +24,5 @@ export function writeContract(
   const { chainId, ...rest } = parameters
   const client = config.getClient({ chainId })
   const action = getAction(client, strkjs_writeContract, 'writeContract')
-  return action({ ...rest, client }) as Promise<WriteContractReturnType>
+  return action(rest) as Promise<WriteContractReturnType>
 }

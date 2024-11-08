@@ -203,12 +203,12 @@ export {
   type GetTraceTransactionReturnType,
 } from "../actions/getTraceTransaction.js";
 
-export {
-  simulateTransaction,
-  type SimulateTransactionErrorType,
-  type SimulateTransactionParameters,
-  type SimulateTransactionReturnType,
-} from "../actions/simulateTransaction.js";
+// export {
+//   simulateTransaction,
+//   type SimulateTransactionErrorType,
+//   type SimulateTransactionParameters,
+//   type SimulateTransactionReturnType,
+// } from "../actions/simulateTransaction.js";
 
 export {
   syncing,

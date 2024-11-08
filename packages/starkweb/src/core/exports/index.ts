@@ -200,12 +200,12 @@ export {
   type GetTransactionByBlockIdAndIndexReturnType,
 } from "../actions/getTransactionByBlockIdAndIndex.js";
 
-export {
-  simulateTransaction,
-  type SimulateTransactionErrorType,
-  type SimulateTransactionParameters,
-  type SimulateTransactionReturnType,
-} from "../actions/simulateTransaction.js";
+// export {
+//   simulateTransaction,
+//   type SimulateTransactionErrorType,
+//   type SimulateTransactionParameters,
+//   type SimulateTransactionReturnType,
+// } from "../actions/simulateTransaction.js";
 
 export {
   syncing,
