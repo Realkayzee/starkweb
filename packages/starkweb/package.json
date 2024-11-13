@@ -40,6 +40,11 @@
             "import": "./dist/esm/exports/chains/utils.js",
             "default": "./dist/cjs/exports/chains/utils.js"
         },
+        "./connectors": {
+            "types": "./dist/types/exports/connectors.d.ts",
+            "import": "./dist/esm/exports/connectors.js",
+            "default": "./dist/cjs/exports/connectors.js"
+        },
         "./starknetId": {
             "types": "./dist/types/exports/starknetId.d.ts",
             "import": "./dist/esm/exports/starknetId.js",
@@ -64,11 +69,6 @@
             "types": "./dist/types/exports/utils.d.ts",
             "import": "./dist/esm/exports/utils.js",
             "default": "./dist/cjs/exports/utils.js"
-        },
-        "./connectors": {
-            "types": "./dist/types/exports/connectors.d.ts",
-            "import": "./dist/esm/exports/connectors.js",
-            "default": "./dist/cjs/exports/connectors.js"
         },
         "./query": {
             "types": "./dist/types/exports/query.d.ts",
