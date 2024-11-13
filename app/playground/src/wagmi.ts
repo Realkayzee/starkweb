@@ -1,16 +1,16 @@
-import { http } from 'starkweb'
-import { createConfig } from 'starkweb/core'
+// import { http, cookieStorage, createConfig, createStorage } from 'wagmi'
+// import { mainnet, sepolia } from 'wagmi/chains'
+// import { coinbaseWallet, injected, walletConnect } from 'wagmi/connectors'
+
+import { createConfig, createStorage, cookieStorage } from 'starkweb/core'
 import { mainnet, sepolia } from 'starkweb/chains'
-import { cookieStorage } from 'starkweb/core'
-import { createStorage, injected, argentX } from 'starkweb/core'
+import { argentX } from 'starkweb/core'
+import { http } from 'starkweb'
 
 export function getConfig() {
   return createConfig({
     chains: [mainnet, sepolia],
-    connectors: [
-      injected(),
-      argentX(),
-    ],
+    connectors: [argentX()],
     storage: createStorage({
       storage: cookieStorage,
     }),
