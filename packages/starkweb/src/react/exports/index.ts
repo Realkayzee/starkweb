@@ -7,10 +7,6 @@ export {
   type StarkwebProviderProps,
   StarkwebContext,
   StarkwebProvider,
-  /** @deprecated Use `StarkwebContext` instead */
-  StarkwebContext as Context,
-  /** @deprecated Use `StarkwebProvider` instead */
-  StarkwebProvider as StarkwebConfig,
 } from '../context.js'
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -227,16 +223,12 @@ export {
   type UseReadContractParameters,
   type UseReadContractReturnType,
   useReadContract,
-  /** @deprecated Use `useWriteContract` instead */
-  useReadContract as useContractRead,
 } from '../hooks/useReadContract.js'
 
 export {
   type UseReadContractsParameters,
   type UseReadContractsReturnType,
   useReadContracts,
-  /** @deprecated Use `useWriteContract` instead */
-  useReadContracts as useContractReads,
 } from '../hooks/useReadContracts.js'
 
 export {
@@ -370,8 +362,6 @@ export {
   type UseWriteContractParameters,
   type UseWriteContractReturnType,
   useWriteContract,
-  /** @deprecated Use `useWriteContract` instead */
-  useWriteContract as useContractWrite,
 } from '../hooks/useWriteContract.js'
 
 ////////////////////////////////////////////////////////////////////////////////

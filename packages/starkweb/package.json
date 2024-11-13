@@ -1,6 +1,6 @@
 {
     "name": "starkweb",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "private": false,
     "type": "module",
     "main": "./dist/cjs/exports/starkweb.js",
@@ -16,80 +16,98 @@
     },
     "exports": {
         ".": {
-            "types": "./dist/esm/exports/starkweb.d.ts",
+            "types": "./dist/types/exports/starkweb.d.ts",
             "import": "./dist/esm/exports/starkweb.js",
             "default": "./dist/cjs/exports/starkweb.js"
         },
         "./accounts": {
-            "types": "./dist/esm/exports/accounts.d.ts",
+            "types": "./dist/types/exports/accounts.d.ts",
             "import": "./dist/esm/exports/accounts.js",
             "default": "./dist/cjs/exports/accounts.js"
         },
         "./actions": {
-            "types": "./dist/esm/exports/actions.d.ts",
+            "types": "./dist/types/exports/actions.d.ts",
             "import": "./dist/esm/exports/actions.js",
             "default": "./dist/cjs/exports/actions.js"
         },
         "./chains": {
-            "types": "./dist/esm/exports/chains.d.ts",
+            "types": "./dist/types/exports/chains.d.ts",
             "import": "./dist/esm/exports/chains.js",
             "default": "./dist/cjs/exports/chains.js"
         },
         "./chains/utils": {
-            "types": "./dist/esm/exports/chains/utils.d.ts",
+            "types": "./dist/types/exports/chains/utils.d.ts",
             "import": "./dist/esm/exports/chains/utils.js",
             "default": "./dist/cjs/exports/chains/utils.js"
         },
         "./starknetId": {
-            "types": "./dist/esm/exports/starknetId.d.ts",
+            "types": "./dist/types/exports/starknetId.d.ts",
             "import": "./dist/esm/exports/starknetId.js",
             "default": "./dist/cjs/exports/starknetId.js"
         },
         "./siws": {
-            "types": "./dist/esm/exports/siws.d.ts",
+            "types": "./dist/types/exports/siws.d.ts",
             "import": "./dist/esm/exports/siws.js",
             "default": "./dist/cjs/exports/siws.js"
         },
         "./window": {
-            "types": "./dist/esm/exports/window.d.ts",
+            "types": "./dist/types/exports/window.d.ts",
             "import": "./dist/esm/exports/window.js",
             "default": "./dist/cjs/exports/window.js"
         },
         "./cli": {
-            "types": "./dist/esm/cli/bin.d.ts",
+            "types": "./dist/types/cli/bin.d.ts",
             "import": "./dist/esm/cli/bin.js",
             "default": "./dist/cjs/cli/bin.js"
         },
         "./utils": {
-            "types": "./dist/esm/exports/utils.d.ts",
+            "types": "./dist/types/exports/utils.d.ts",
             "import": "./dist/esm/exports/utils.js",
             "default": "./dist/cjs/exports/utils.js"
         },
         "./connectors": {
-            "types": "./dist/esm/exports/connectors.d.ts",
+            "types": "./dist/types/exports/connectors.d.ts",
             "import": "./dist/esm/exports/connectors.js",
             "default": "./dist/cjs/exports/connectors.js"
         },
         "./query": {
-            "types": "./dist/esm/exports/query.d.ts",
+            "types": "./dist/types/exports/query.d.ts",
             "import": "./dist/esm/exports/query.js",
             "default": "./dist/cjs/exports/query.js"
         },
         "./react": {
-            "types": "./dist/esm/exports/react/index.d.ts",
+            "types": "./dist/types/exports/react/index.d.ts",
             "import": "./dist/esm/exports/react/index.js",
             "default": "./dist/cjs/exports/react/index.js"
         },
         "./core": {
-            "types": "./dist/esm/core/exports/index.d.ts",
+            "types": "./dist/types/exports/core/index.d.ts",
             "import": "./dist/esm/core/exports/index.js",
             "default": "./dist/cjs/core/exports/index.js"
         }
     },
     "typesVersions": {
         "*": {
-            "*": [
-                "./dist/esm/exports/*"
+            "chains/": [
+                "./dist/types/exports/chains.d.ts"
+            ],
+            "chains/utils/": [
+                "./dist/types/exports/chains/utils.d.ts"
+            ],
+            "connectors/": [
+                "./dist/types/exports/connectors.d.ts"
+            ],
+            "react/": [
+                "./dist/types/exports/react/index.d.ts"
+            ],
+            "utils/": [
+                "./dist/types/exports/utils.d.ts"
+            ],
+            "query/": [
+                "./dist/types/exports/query.d.ts"
+            ],
+            "core/": [
+                "./dist/types/exports/core/index.d.ts"
             ]
         }
     },

@@ -1,14 +1,14 @@
 'use client'
 
-import { getConfig } from '@/wagmi'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { type ReactNode, useState } from 'react'
-import { type State, StarkwebProvider } from 'starkweb/react'
+import { StarkwebProvider } from 'starkweb/react'
 
+import { getConfig } from '@/wagmi'
 
 export function Providers(props: {
   children: ReactNode
-  initialState?: State
+  initialState?: any
 }) {
   const [config] = useState(() => getConfig())
   const [queryClient] = useState(() => new QueryClient())

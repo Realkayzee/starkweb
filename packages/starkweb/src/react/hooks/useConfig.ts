@@ -1,11 +1,11 @@
 'use client'
 
-import type { Config } from '../../core/createConfig.js'
 import { useContext } from 'react'
 
 import { StarkwebContext } from '../context.js'
 import { StarkwebProviderNotFoundError } from '../errors/context.js'
 import type { ConfigParameter } from '../types/properties.js'
+import type { Config } from '../../core/createConfig.js'
 
 export type UseConfigParameters = ConfigParameter
 
