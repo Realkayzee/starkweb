@@ -374,8 +374,6 @@ export {
 } from "../connectors/createConnector.js";
 
 export { type InjectedParameters, injected } from "../connectors/injected.js";
-export { argentX } from '../connectors/argentX.js'
-export { braavos } from '../connectors/braavosX.js'
 
 
 ////////////////////////////////////////////////////////////////////////////////
