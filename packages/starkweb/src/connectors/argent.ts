@@ -1,26 +1,11 @@
-// import {  ChainNotConfiguredError, createConnector } from 'sn-wolf-core'
-// import type { Evaluate } from 'sn-wolf-core/internal'
-// import {
-//     type Address,
-//     type Hex,
-//     type ProviderConnectInfo,
-//     type ProviderRpcError,
-//     ResourceUnavailableRpcError,
-//     type RpcError,
-//     type SNIP1193Provider,
-//     SwitchChainError,
-//     UserRejectedRequestError,
-//     getAddress,
-//   } from 'strkjs'
-//   import 'strkjs/window'
-
-import type { ProviderConnectInfo, SNIP1193Provider } from "../../types/snip1193.js"
-import type { Evaluate } from "../../types/utils.js"
-import { createConnector } from "./createConnector.js"
-import type { Address } from "abitype"
-import { ChainNotConfiguredError } from "../errors/config.js"
-import { ResourceUnavailableRpcError, RpcError, SwitchChainError, UserRejectedRequestError } from "../../errors/rpc.js"
-import type { Hex } from "../../types/misc.js"
+import { createConnector } from "../core/connectors/createConnector.js"
+import { ChainNotConfiguredError } from "../core/errors/config.js"
+import type { Evaluate } from "../core/types/utils.js"
+import { ResourceUnavailableRpcError, SwitchChainError } from "../errors/rpc.js"
+import type { RpcError } from "../errors/rpc.js"
+import { UserRejectedRequestError } from "../errors/rpc.js"
+import type { Address, Hex } from "../types/misc.js"
+import type { ProviderConnectInfo, SNIP1193Provider } from "../types/snip1193.js"
 
   export  type ArgentXParameters = any
   
@@ -105,18 +90,9 @@ import type { Hex } from "../../types/misc.js"
         }
       },
       async disconnect() {
-        const provider = await this.getProvider()
-        
-        
-        provider.removeListener(
-          'accountsChanged',
-          this.onAccountsChanged.bind(this),
-        )
-        provider.removeListener('networkChanged', this.onChainChanged)
-        
-        // Add shim signalling connector is disconnected
+        config.emitter.emit('disconnect')
         await config.storage?.setItem('argentX.disconnected', true)
-      } ,
+      },
       async getAccounts() {
         const provider = await this.getProvider()
         const accounts = (await provider.request({
@@ -131,7 +107,6 @@ import type { Hex } from "../../types/misc.js"
         return chainId
       },
       async getProvider() {
-        // if (typeof window === 'undefined') return undefined
         const provider: WalletProvider = (window as unknown as Window & { starknet_argentX: SNIP1193Provider }).starknet_argentX as WalletProvider
         return provider
       },
@@ -199,7 +174,6 @@ import type { Hex } from "../../types/misc.js"
       },
       onChainChanged(chain) {
         const chainId = chain
-        // this.chainId = chainId 
         config.emitter.emit('networkChanged', { chainId })
         config.emitter.emit('change', { chainId })
       },
@@ -207,8 +181,8 @@ import type { Hex } from "../../types/misc.js"
         const accounts = await this.getAccounts()
         if (accounts.length === 0) return
   
-        const chainId = connectInfo.chainId
-        config.emitter.emit('accountsChanged', { accounts, chainId: chainId as Hex })
+        const chainId = connectInfo.chainId as Hex
+        config.emitter.emit('accountsChanged', { accounts, chainId })
   
         const provider = await this.getProvider()
         if (provider) {
@@ -239,14 +213,9 @@ import type { Hex } from "../../types/misc.js"
           accounts: [],
           chainId: undefined
         })
-  
-        provider.removeListener(
-          'accountsChanged',
-          this.onAccountsChanged.bind(this),
-        )
-        provider.removeListener('networkChanged', this.onChainChanged)
-        // provider.removeListener('networkChanged', this.onDisconnect.bind(this))
+
         provider.on('accountsChanged', this.onAccountsChanged.bind(this) as any)
+        this.disconnect()
       },
     }))
   }
@@ -254,4 +223,3 @@ import type { Hex } from "../../types/misc.js"
 function getStarknetAddress(x: string): any {
   return x as Address
 }
-  
