@@ -108,6 +108,9 @@
             ],
             "core": [
                 "./dist/types/core/exports/index.d.ts"
+            ],
+            "siws": [
+                "./dist/types/exports/siws.d.ts"
             ]
         }
     },
