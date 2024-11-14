@@ -1,5 +1,5 @@
-import type { Chain } from "../../types/chain.js";
-import { useConfig } from "../../react/hooks/useConfig.js";
+import { Chain } from 'strkjs';
+import { useConfig } from 'sn-wolf';
 
 export function useChains() {
   const wolf = useConfig();

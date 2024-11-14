@@ -1,5 +1,5 @@
-import { useConfig } from "src/react/hooks/useConfig.js";
-import type { Hex } from "../../types/misc.js";
+import { useConfig } from 'sn-wolf';
+import { Hex } from 'strkjs';
 
 export function useChainIsSupported(chainId?: Hex): boolean | null {
   const { chains } = useConfig();
