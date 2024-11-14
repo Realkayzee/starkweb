@@ -1,6 +1,6 @@
 import type { Address } from '../types/misc.js'
 import { RpcError, UserRejectedRequestError, ResourceUnavailableRpcError, SwitchChainError, ProviderRpcError } from '../errors/rpc.js'
-import { withRetry } from '../exports/starkweb.js'
+import { withRetry, type Chain } from '../exports/starkweb.js'
 import type { Hex } from '../types/misc.js'
 import type { ProviderConnectInfo, SNIP1193Provider } from '../types/snip1193.js'
 import { getAddress, numberToHex, stringToHex } from '../utils/index.js'
@@ -359,7 +359,7 @@ export function injected(parameters: InjectedParameters = {}) {
       const provider = await this.getProvider()
       if (!provider) throw new ProviderNotFoundError()
 
-      const chain = config.chains.find((x: { id: string }) => x.id === chainId)
+      const chain = config.chains.find((x: Chain) => x.chain_id === chainId)
       if (!chain) throw new SwitchChainError(new ChainNotConfiguredError())
 
       try {
@@ -408,7 +408,6 @@ export function injected(parameters: InjectedParameters = {}) {
             else if (blockExplorer)
               blockExplorerUrls = [
                 blockExplorer.url,
-                // @ts-expect-error
                 ...Object.values(blockExplorers).map((x) => x.url),
               ]
 

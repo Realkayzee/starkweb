@@ -1,12 +1,3 @@
-// import type {
-//   Address,
-//   Chain,
-//   Client,
-//   Hex,
-//   ProviderConnectInfo,
-//   ProviderMessage,
-// } from 'strkjs'
-
 import type { Emitter } from '../createEmitter.js'
 import type { Storage } from '../createStorage.js'
 import type { Evaluate, ExactPartial, Omit } from '../types/utils.js'
@@ -39,8 +30,7 @@ export type CreateConnectorFn<
   properties extends Record<string, unknown> = Record<string, unknown>,
   storageItem extends Record<string, unknown> = Record<string, unknown>,
 > = (config: {
-  // TODO: fix this remove any
-  chains: readonly Chain[] | any
+  chains: readonly Chain[]
   emitter: Emitter<ConnectorEventMap>
   storage?: Evaluate<Storage<storageItem>> | null | undefined
 }) => Evaluate<
