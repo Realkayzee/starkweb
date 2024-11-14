@@ -1,3 +1,4 @@
 packages:
   - packages/starkweb
+  - packages/starkui
   - app/*

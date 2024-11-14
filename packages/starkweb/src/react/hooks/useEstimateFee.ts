@@ -1,4 +1,3 @@
-// @ts-nocheck
 
 "use client";
 
@@ -6,14 +5,14 @@ import type {
   Config,
   EstimateFeeErrorType,
   ResolvedRegister,
-} from "sn-wolf-core";
+} from "starkweb/core";
 import {
   type EstimateFeeData,
   type EstimateFeeOptions,
   type EstimateFeeQueryFnData,
   type EstimateFeeQueryKey,
   estimateFeeQueryOptions,
-} from "sn-wolf-core/query";
+} from "starkweb/query";
 
 import type { ConfigParameter, QueryParameter } from "../types/properties.js";
 import { type UseQueryReturnType, useQuery } from "../utils/query.js";

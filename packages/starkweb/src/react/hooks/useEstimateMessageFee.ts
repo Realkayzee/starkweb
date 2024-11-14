@@ -4,13 +4,13 @@
 import type {
   Config,
   ResolvedRegister,
-} from 'sn-wolf-core'
+} from 'starkweb/core'
 import {
   type EstimateMessageFeeData,
   type EstimateMessageFeeQueryFnData,
   type EstimateMessageFeeQueryKey,
   estimateMessageFeeQueryOptions,
-} from 'sn-wolf-core/query'
+} from 'starkweb/query'
 
 import type { ConfigParameter, QueryParameter } from '../types/properties.js'
 import { type UseQueryReturnType, useQuery } from '../utils/query.js'

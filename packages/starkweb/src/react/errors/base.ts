@@ -6,7 +6,7 @@ export type BaseErrorType = BaseError & { name: 'StarkwebError' }
 export class BaseError extends CoreError {
   override name = 'StarkwebError'
   override get docsBaseUrl() {
-    return 'https://sn-wolf.com/react'
+    return 'https://starkweb.xyz/react'
   }
   override get version() {
     return getVersion()
